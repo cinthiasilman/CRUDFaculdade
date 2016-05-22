@@ -43,17 +43,25 @@ namespace Faculdade.Controllers
         }
 
         // POST: Aluno/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,Sobrenome,DataMatricula")] Aluno aluno)
+        public ActionResult Create([Bind(Include = "Nome,Sobrenome,DataMatricula")] Aluno aluno)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Alunos.Add(aluno);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+
+                if (ModelState.IsValid)
+                {
+                    db.Alunos.Add(aluno);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
 
             return View(aluno);
@@ -75,27 +83,43 @@ namespace Faculdade.Controllers
         }
 
         // POST: Aluno/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nome,Sobrenome,DataMatricula")] Aluno aluno)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(aluno).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(aluno);
-        }
-
-        // GET: Aluno/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult EditPost(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var alunoToUpdate = db.Alunos.Find(id);
+            if (TryUpdateModel(alunoToUpdate, "",
+               new string[] { "Nome", "Sobrenome", "DataMatricula" }))
+            {
+                try
+                {
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch (DataException /* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                }
+            }
+            return View(alunoToUpdate);
+        }
+
+        // GET: Aluno/Delete/5
+        public ActionResult Delete(int? id, bool? saveChangesError=false)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Falha na deleção. Tente novamente.";
             }
             Aluno aluno = db.Alunos.Find(id);
             if (aluno == null)
@@ -106,13 +130,21 @@ namespace Faculdade.Controllers
         }
 
         // POST: Aluno/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
-            Aluno aluno = db.Alunos.Find(id);
-            db.Alunos.Remove(aluno);
-            db.SaveChanges();
+            try
+            {
+                Aluno aluno = db.Alunos.Find(id);
+                db.Alunos.Remove(aluno);
+                db.SaveChanges();
+            }
+            catch (DataException/* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
             return RedirectToAction("Index");
         }
 

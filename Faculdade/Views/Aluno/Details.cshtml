@@ -33,10 +33,31 @@
         <dd>
             @Html.DisplayFor(model => model.DataMatricula)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Matriculas)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Título do Curso</th>
+                    
+                </tr>
+                @foreach (var item in Model.Matriculas)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Curso.Descricao)
+                        </td>
+                       
+                    </tr>
+                }
+            </table>
+        </dd>
+
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volte para a lista completa", "Index")
 </p>
