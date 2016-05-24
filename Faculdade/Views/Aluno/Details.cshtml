@@ -37,7 +37,7 @@
             @Html.DisplayNameFor(model => model.Matriculas)
         </dt>
         <dd>
-            <table class="table">
+            <table class="table table-striped">
                 <tr>
                     <th>Título do Curso</th>
                     
@@ -58,6 +58,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Volte para a lista completa", "Index")
 </p>
