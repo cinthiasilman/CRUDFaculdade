@@ -80,3 +80,6 @@ C:\Users\tay_s\Desktop\Faculdade\Faculdade\bin\Microsoft.Owin.Security.Microsoft
 C:\Users\tay_s\Desktop\Faculdade\Faculdade\obj\Debug\Faculdade.csprojResolveAssemblyReference.cache
 C:\Users\tay_s\Desktop\Faculdade\Faculdade\obj\Debug\Faculdade.dll
 C:\Users\tay_s\Desktop\Faculdade\Faculdade\obj\Debug\Faculdade.pdb
+C:\Users\tay_s\Desktop\Faculdade\Faculdade\obj\Debug\Faculdade.Migrations.InitialCreate.resources
+C:\Users\tay_s\Desktop\Faculdade\Faculdade\obj\Debug\Faculdade.csproj.GenerateResource.Cache
+C:\Users\tay_s\Desktop\Faculdade\Faculdade\obj\Debug\Faculdade.Migrations.modelosOk.resources

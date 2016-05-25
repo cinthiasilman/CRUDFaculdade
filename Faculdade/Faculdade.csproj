@@ -197,13 +197,24 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MatriculasController.cs" />
     <Compile Include="DAL\FaculdadeContext.cs" />
     <Compile Include="DAL\FaculdadeInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605212022422_InitialCreate.cs" />
+    <Compile Include="Migrations\201605212022422_InitialCreate.Designer.cs">
+      <DependentUpon>201605212022422_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605251648402_modelosOk.cs" />
+    <Compile Include="Migrations\201605251648402_modelosOk.Designer.cs">
+      <DependentUpon>201605251648402_modelosOk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\Curso.cs" />
@@ -278,6 +289,16 @@
     <Content Include="Views\Aluno\Details.cshtml" />
     <Content Include="Views\Aluno\Edit.cshtml" />
     <Content Include="Views\Aluno\Index.cshtml" />
+    <Content Include="Views\Cursos\Create.cshtml" />
+    <Content Include="Views\Cursos\Delete.cshtml" />
+    <Content Include="Views\Cursos\Details.cshtml" />
+    <Content Include="Views\Cursos\Edit.cshtml" />
+    <Content Include="Views\Cursos\Index.cshtml" />
+    <Content Include="Views\Matriculas\Create.cshtml" />
+    <Content Include="Views\Matriculas\Delete.cshtml" />
+    <Content Include="Views\Matriculas\Details.cshtml" />
+    <Content Include="Views\Matriculas\Edit.cshtml" />
+    <Content Include="Views\Matriculas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -289,6 +310,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605212022422_InitialCreate.resx">
+      <DependentUpon>201605212022422_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605251648402_modelosOk.resx">
+      <DependentUpon>201605251648402_modelosOk.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -110,6 +110,8 @@ namespace Faculdade.Controllers
             return View(alunoToUpdate);
         }
 
+
+
         // GET: Aluno/Delete/5
         public ActionResult Delete(int? id, bool? saveChangesError=false)
         {

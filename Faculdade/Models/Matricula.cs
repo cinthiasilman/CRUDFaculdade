@@ -9,6 +9,7 @@ namespace Faculdade.Models
     public class Matricula
     {
         public int MatriculaID { get; set; }
+        public DateTime DataMatricula { get; set; }
         public int CursoID { get; set; }
         public int AlunoID { get; set; }
 
