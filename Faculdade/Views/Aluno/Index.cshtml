@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Faculdade.Models.Aluno>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Alunos";
 }
 
-<h2>Index</h2>
+<h2>Alunos</h2>
 
 <p>
     @Html.ActionLink("Adicionar aluno", "Create")
@@ -37,7 +37,7 @@
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Detalhar", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Deletar", "Delete", new { id=item.ID })
+            @Html.ActionLink("Apagar", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

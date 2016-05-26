@@ -1,14 +1,13 @@
 ﻿@model Faculdade.Models.Aluno
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Apagar Aluno";
 }
 
-<h2>Delete</h2>
+<h2>Apagar Aluno</h2>
 <p class="error">@ViewBag.ErrorMessage</p>
 <h3>Você tem certeza que deseja excluir?</h3>
 <div>
-    <h4>Aluno</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -41,7 +40,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <input type="submit" value="Apagar" class="btn btn-danger" /> |
             @Html.ActionLink("Voltar para a lista", "Index")
         </div>
     }
