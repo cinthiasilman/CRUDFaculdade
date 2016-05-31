@@ -4,17 +4,17 @@
     ViewBag.Title = "Cursos";
 }
 
-<h2>Cursos</h2>
+<h2 style="color:#CD5C5C";>Cursos</h2>
 
 <p>
     @Html.ActionLink("Adicionar Curso", "Create")
 </p>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <tr>
-        <th>
+        <th style="color:#CD5C5C";>
             @Html.DisplayNameFor(model => model.Descricao)
         </th>
-        <th></th>
+        <th style="color:#CD5C5C";></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -22,7 +22,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
-        <td>
+        <td style="color:#CD5C5C";>
             @Html.ActionLink("Editar", "Edit", new { id=item.CursoID }) |
             @Html.ActionLink("Detalhar", "Details", new { id=item.CursoID }) |
             @Html.ActionLink("Apagar", "Delete", new { id=item.CursoID })
